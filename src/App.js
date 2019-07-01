@@ -7,7 +7,6 @@ import './App.css';
 
 class App extends Component {
   state = {
-    search: '',
     sendChars: []
   }
 
@@ -18,14 +17,13 @@ class App extends Component {
 
     if(e.target.value.length > 2){
       characters.forEach(character => {
-        if(character.name.includes(lookFor)){
+        if(character.name.toLowerCase().includes(lookFor)){
           foundChars.push(character)
         }
       });
     }
 
     await this.setState({
-      search: e.target.value,
       sendChars: foundChars
     });
   }
