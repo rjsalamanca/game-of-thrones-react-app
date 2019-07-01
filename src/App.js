@@ -32,7 +32,7 @@ class App extends Component {
     const { sendChars } = this.state;
     return (
       <div className="App">
-        <img className="mainGOTImage" src="/images/got.png" />
+        <img className="mainGOTImage" src="/images/got.png" alt="Game of Thrones Logo" />
         <input className="searchCharacter" type='text' name="characters" onChange={this.handleChange.bind(this)} />
         <CharacterList characters={sendChars} />
       </div>
