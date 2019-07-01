@@ -3,8 +3,19 @@ import React, { Component } from 'react';
 import CharacterDetails from './CharacterDetails';
 
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import './CharacterList.css'
+import './CharacterList.css';
+
+const CharacterSide = styled.div`
+    padding:10px 0;
+
+    &:hover{
+        color: white;
+        background-color: darkgrey;
+    }
+`;
+
 class CharacterList extends Component {
     state = {
         info: {}
@@ -25,7 +36,7 @@ class CharacterList extends Component {
                 <div className="chooseCharacter">
                     <h3>Choose a Character</h3>
                     {characters.map((character, ind) =>
-                        <div key={character + ind} onClick={(e) => this.getInfo(e, character)}>{character.name}</div>
+                        <CharacterSide key={character + ind} onClick={(e) => this.getInfo(e, character)}>{character.name}</CharacterSide>
                     )}
                 </div>
                 <div className="info">
