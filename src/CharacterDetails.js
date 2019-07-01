@@ -3,19 +3,19 @@ import React from 'react';
 import PropType from 'prop-types';
 
 const CharacterDetails = props => {
-    const { info } = props;
-
+    const { details } = props;
     return(
         <div>
             <h3>Character Details</h3>
-            {info === undefined ?
+            {Object.keys(details).length !== 0 ?
                 <ul>
-                    <li><b>Name: </b>{info.name}</li>
-                    <li><b>Aliases: </b>{info.aliase}</li>
-                    <li><b>Birth Date: </b>{info.born}</li>
-                    <li><b>Titles: </b>{info.titles}</li>
+                    <li><b>Name: </b>{details.name}</li>
+                    <li><b>Aliases: </b>{details.aliase}</li>
+                    <li><b>Birth Date: </b>{details.born}</li>
+                    <li><b>Titles: </b>{details.titles}</li>
                 </ul>
-            : <div>No Data</div> 
+            : 
+                <div>No Data</div> 
             }
         </div>
         
@@ -25,5 +25,5 @@ const CharacterDetails = props => {
 export default CharacterDetails;
 
 CharacterDetails.propType = {
-    info: PropType.object
+    detail: PropType.object
 }
