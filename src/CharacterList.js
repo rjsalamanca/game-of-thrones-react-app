@@ -21,7 +21,6 @@ class CharacterList extends Component{
         const {info} = this.state;
         return(
             <div>
-                <h1>Characters</h1>
                 <div>
                     <div className="info" style={{border:'1px solid red', width:'100px', minHeight:'20px'}}>
                         <CharacterDetails details={ info }/>
