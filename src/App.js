@@ -7,37 +7,37 @@ import './App.css';
 
 class App extends Component {
   state = {
-    sendChars: []
+    sendChars: characters
   }
 
-  async handleChange(e){
+  async handleChange(e) {
     e.preventDefault();
-    const lookFor = e.target.value;
+    const lookFor = e.target.value.toLowerCase();
     let foundChars = [];
 
-    if(e.target.value.length > 2){
-      characters.forEach(character => {
-        if(character.name.toLowerCase().includes(lookFor)){
-          foundChars.push(character)
-        }
-      });
-    }
+    // if(e.target.value.length > 2){
+    characters.forEach(character => {
+      if (character.name.toLowerCase().includes(lookFor)) {
+        foundChars.push(character)
+      }
+    });
+    //}
 
     await this.setState({
       sendChars: foundChars
     });
   }
 
-  render(){
+  render() {
     const { sendChars } = this.state;
     return (
       <div className="App">
-        <input type='text' name="characters" onChange={this.handleChange.bind(this)}/><br/>
-        <CharacterList characters={sendChars}/>
+        <img className="mainGOTImage" src="/images/got.png" />
+        <input className="searchCharacter" type='text' name="characters" onChange={this.handleChange.bind(this)} />
+        <CharacterList characters={sendChars} />
       </div>
     );
   }
 }
-//<input type='text' name="counter" onChange={this.handleChange.bind(this)}/><br/>
 
 export default App;

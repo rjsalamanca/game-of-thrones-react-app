@@ -4,30 +4,32 @@ import CharacterDetails from './CharacterDetails';
 
 import PropTypes from 'prop-types';
 
-class CharacterList extends Component{
+import './CharacterList.css'
+class CharacterList extends Component {
     state = {
         info: {}
     }
 
-    async getInfo(e,char){
+    async getInfo(e, char) {
         e.preventDefault();
         await this.setState({
             info: char
         })
     }
 
-    render(){
-        const {characters} = this.props;
-        const {info} = this.state;
-        return(
-            <div>
-                <div>
-                    <div className="info" style={{border:'1px solid red', width:'100px', minHeight:'20px'}}>
-                        <CharacterDetails details={ info }/>
-                    </div>
-                    {characters.map((character,ind) => 
-                        <div key={character+ind} onClick={(e) => this.getInfo(e, character)}>{character.name}</div>
+    render() {
+        const { characters } = this.props;
+        const { info } = this.state;
+        return (
+            <div id="characterInfoContainer">
+                <div className="chooseCharacter">
+                    <h3>Choose a Character</h3>
+                    {characters.map((character, ind) =>
+                        <div key={character + ind} onClick={(e) => this.getInfo(e, character)}>{character.name}</div>
                     )}
+                </div>
+                <div className="info">
+                    <CharacterDetails details={info} />
                 </div>
             </div>
         );
